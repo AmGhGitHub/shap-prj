@@ -38,8 +38,8 @@ if ENVIRONMENT == 'production':
 # https://stackoverflow.com/questions/44037474/cors-error-while-consuming-calling-rest-api-with-react
 
 
-# ALLOWED_HOSTS = ['*']
-# CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -59,11 +59,6 @@ INSTALLED_APPS = [
     # local apps
     'api.apps.ApiConfig'
 ]
-
-CORS_ORIGIN_WHITELIST = ["http://shap-frontend.s3-website-us-west-2.amazonaws.com/",
-                "http://localhost:3000",  
-                "http://127.0.0.1:3000"
-                 ]
 
 
 

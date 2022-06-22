@@ -4,4 +4,56 @@ services:
   backend:
     build:
       context: ./shap-django
-      
+    # command: python /code/manage.py runserver 0.0.0.0:8000
+    command: gunicorn shap_django.wsgi -b 0.0.0.0:8000 # new
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    #    env_file:
+    #      - ./shap-django/.env
+    environment:
+      - SECRET_KEY=${SECRET_KEY} # here it is
+      - DEBUG=${DEBUG}
+      - ENVIRONMENT=${ENVIRONMENT_DEV}
+      - REDIS_URL=${REDIS_URL}
+    links:
+      - redis
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+
+  celery:
+    build:
+      context: ./shap-django
+    volumes:
+      - ./shap-django:/src
+    # container_name: cl01
+    command: celery -A shap_django worker #-l info
+    links:
+      - redis
+
+  frontend:
+    build:
+      context: ./shap-react
+    volumes:
+      - react_build:/shap-react/build
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:8080 #request enters at port 80 and are processed by ngnix at port 8080
+    volumes:
+      - ./nginx/nginx-setup.conf:/etc/nginx/conf.d/default.conf:ro
+      - react_build:/var/www/react
+
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  react_build:
