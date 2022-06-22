@@ -1,0 +1,170 @@
+# node ignore
+# dependencies
+shap-react/node_modules
+shap-react/.pnp
+shap-react/.pnp.js
+
+# testing
+shap-react/coverage
+
+# production
+shap-react/build
+
+# misc
+shap-react/.DS_Store
+shap-react/.env.local
+shap-react/.env.development.local
+shap-react/.env.test.local
+shap-react/.env.production.local
+
+shap-react/npm-debug.log*
+shap-react/yarn-debug.log*
+shap-react/yarn-error.log*
+
+shap-react/src/__MACOSX
+
+
+# python ignore
+
+# Django #
+shap-django/*.log
+shap-django/*.pot
+shap-django/*.pyc
+shap-django/__pycache__
+shap-django/db.sqlite3
+shap-django/media
+
+# Backup files # 
+shap-django/*.bak 
+
+# If you are using PyCharm # 
+# User-specific stuff
+shap-django/.idea/**/workspace.xml
+shap-django/.idea/**/tasks.xml
+shap-django/.idea/**/usage.statistics.xml
+shap-django/.idea/**/dictionaries
+shap-django/.idea/**/shelf
+
+# AWS User-specific
+shap-django/.idea/**/aws.xml
+
+# Generated files
+shap-django/.idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+shap-django/.idea/**/dataSources/
+shap-django/.idea/**/dataSources.ids
+shap-django/.idea/**/dataSources.local.xml
+shap-django/.idea/**/sqlDataSources.xml
+shap-django/.idea/**/dynamic.xml
+shap-django/.idea/**/uiDesigner.xml
+shap-django/.idea/**/dbnavigator.xml
+
+# Gradle
+shap-django/.idea/**/gradle.xml
+shap-django/.idea/**/libraries
+
+# File-based project format
+shap-django/*.iws
+
+# IntelliJ
+shap-django/out/
+
+# JIRA plugin
+shap-django/atlassian-ide-plugin.xml
+
+# Python # 
+shap-django/*.py[cod] 
+shap-django/*$py.class 
+
+# Distribution / packaging 
+shap-django/.Python build/ 
+shap-django/develop-eggs/ 
+shap-django/dist/ 
+shap-django/downloads/ 
+shap-django/eggs/ 
+shap-django/.eggs/ 
+shap-django/lib/ 
+shap-django/lib64/ 
+shap-django/parts/ 
+shap-django/sdist/ 
+shap-django/var/ 
+shap-django/wheels/ 
+shap-django/*.egg-info/ 
+shap-django/.installed.cfg 
+shap-django/*.egg 
+shap-django/*.manifest 
+shap-django/*.spec 
+
+# Installer logs 
+shap-django/pip-log.txt 
+shap-django/pip-delete-this-directory.txt 
+
+# Unit test / coverage reports 
+shap-django/htmlcov/ 
+shap-django/.tox/ 
+shap-django/.coverage 
+shap-django/.coverage.* 
+shap-django/.cache 
+shap-django/.pytest_cache/ 
+shap-django/nosetests.xml 
+shap-django/coverage.xml 
+shap-django/*.cover 
+shap-django/.hypothesis/ 
+
+# Jupyter Notebook 
+shap-django/.ipynb_checkpoints 
+
+# pyenv 
+shap-django/.python-version 
+
+# celery 
+shap-django/celerybeat-schedule.* 
+
+# SageMath parsed files 
+shap-django/*.sage.py 
+
+# Environments 
+shap-django/.env 
+shap-django/.venv 
+shap-django/env/ 
+shap-django/venv/ 
+shap-django/ENV/ 
+shap-django/env.bak/ 
+shap-django/venv.bak/
+shap-django/.env/
+
+# mkdocs documentation 
+shap-django/site 
+
+# mypy 
+shap-django/.mypy_cache/ 
+
+# Sublime Text # 
+shap-django/*.tmlanguage.cache 
+shap-django/*.tmPreferences.cache 
+shap-django/*.stTheme.cache 
+shap-django/*.sublime-workspace 
+shap-django/*.sublime-project 
+
+# sftp configuration file 
+shap-django/sftp-config.json 
+
+# Package control specific files Package 
+shap-django/Control.last-run 
+shap-django/Control.ca-list 
+shap-django/Control.ca-bundle 
+shap-django/Control.system-ca-bundle 
+shap-django/GitHub.sublime-settings 
+
+# Visual Studio Code # 
+shap-django/.vscode/* 
+shap-django/!.vscode/settings.json 
+shap-django/!.vscode/tasks.json 
+shap-django/!.vscode/launch.json 
+shap-django/!.vscode/extensions.json 
+shap-django/.history
+
+shap-django/api/util/data/*
+shap-django/*.xlsx
+

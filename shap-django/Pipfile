@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+celery = "*"
+numpy = "*"
+pandas = "*"
+openpyxl = "*"
+latex2sympy2 = "*"
+sympy = "*"
+django-cors-headers = "*"
+redis = "*"
+xgboost = "*"
+shap = "*"
+scikit-learn = "*"
+install = "*"
+django-environ = "*"
+gunicorn = "*"
+matplotlib = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
