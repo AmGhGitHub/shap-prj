@@ -1,15 +1,15 @@
 FROM node:15.13-alpine
 
-WORKDIR /react
+WORKDIR /app
 
-#ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
 
-COPY package.json package-lock.json /react/
+COPY package.json package-lock.json ./
 RUN npm install --silent && npm install react-scripts@3.4.1 -g --silent
 
-COPY . /react/
+# add app
+COPY . ./
 
-RUN npm run build
-
-
+# start app
+CMD ["npm", "start"]
