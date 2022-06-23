@@ -18,8 +18,3 @@ RUN pip install pipenv && pipenv install --system
 
 # Copy project
 COPY . /code/
-
-
-# based on https://stackoverflow.com/questions/51639652/how-to-configure-docker-to-use-redis-with-celery
-# EXPOSE 8000
-# CMD ["/start.sh"]

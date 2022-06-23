@@ -2,7 +2,7 @@ FROM node:15.13-alpine
 
 WORKDIR /react
 
-ENV PATH /app/node_modules/.bin:$PATH
+#ENV PATH /app/node_modules/.bin:$PATH
 
 
 COPY package.json package-lock.json /react/
