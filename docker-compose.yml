@@ -35,7 +35,9 @@ services:
       - redis
 
   frontend:
-    build: ./shap-react
+    build:
+      context: ./shap-react
+      dockerfile: Dockerfile.prod
     volumes:
       - ./shap-react/build:/src
 
