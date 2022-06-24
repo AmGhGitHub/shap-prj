@@ -2,12 +2,13 @@ version: "3.8"
 
 services:
   backend:
-    build: ./shap-django
+    build:
+      context: ./shap-django
     command: gunicorn shap_django.wsgi:application --bind 0.0.0.0:8000 # new
     volumes:
       - ./shap-django:/code
     env_file:
-      - ./shap-django/django.env
+      - ./.env
     ports:
       - 8000:8000
     environment:
