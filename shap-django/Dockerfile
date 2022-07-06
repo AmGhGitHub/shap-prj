@@ -1,11 +1,12 @@
-FROM python:3.10
+FROM python:3
 
-# upgrade pip
-RUN pip install --upgrade pip
+RUN apt-get update && apt-get install --no-install-recommends -y nano &&\ 
+    pip install --upgrade pip
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+
 
 # Set work directory
 WORKDIR /code
@@ -16,5 +17,7 @@ COPY Pipfile Pipfile.lock /code/
 # use the --system flag to ensure packages are available throughout all of Docker
 RUN pip install pipenv && pipenv install --system
 
+
+
 # Copy project
-COPY . /code/
+COPY . .

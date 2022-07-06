@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', default='no-key')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -16,7 +16,7 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
 
-REDIS_URL=os.environ.get("REDIS_URL")
+#REDIS_URL=os.environ.get("REDIS_URL")
 
 if ENVIRONMENT == 'production':
     SECURE_BROWSER_XSS_FILTER = True # new
@@ -149,14 +149,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # celery
 # print("os.env: \n",os.environ)
-# CELERY_BROKER_URL = REDIS_URL
-# CELERY_RESULT_BACKEND = REDIS_URL
+# CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
+# CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER_URL")
 
 # print("REDIS_URL: \n",REDIS_URL)
 
-CELERY_BROKER_URL = 'redis://redis:6379'
-CELERY_RESULT_BACKEND = 'redis://redis:6379'
+# CELERY_BROKER_URL = 'redis://redis:6379'
+# CELERY_RESULT_BACKEND = 'redis://redis:6379'
 
-# CELERY_ACCEPT_CONTENT = ['application/json']
-# CELERY_RESULT_SERIALIZER = 'json'
-# CELERY_TASK_SERIALIZER = 'json'
+CELERY_broker_url = os.environ.get("CELERY_BROKER_URL",'redis://redis:6379')
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND",'redis://redis:6379')
+
