@@ -2,27 +2,27 @@ version: "3.8"
 
 services:
   backend:
-    build:
-      context: ./shap-django
+    build: ./shap-django
     command: gunicorn shap_django.wsgi:application --bind 0.0.0.0:8000 # new
     volumes:
       - ./shap-django:/code
     env_file:
-      - ./.env
+      - ./shap-django/django.env
     ports:
       - 8000:8000
     environment:
-      - SECRET_KEY=${SECRET_KEY} # here it is
+      - SECRET_KEY=${SECRET_KEY}
       - DEBUG=${DEBUG}
       - ENVIRONMENT=${ENVIRONMENT_DEV}
-      - REDIS_URL=${REDIS_URL}
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
     links:
       - redis
     depends_on:
       - redis
 
   redis:
-    image: redis:latest
+    image: redis:alpine
     ports:
       - 6379:6379
 
@@ -31,13 +31,18 @@ services:
     volumes:
       - .:/src
     command: celery -A shap_django worker #-l info
+    environment:
+      - DEBUG=${DEBUG}
+      - ENVIRONMENT=${ENVIRONMENT_DEV}
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
     links:
+      - redis
+    depends_on:
       - redis
 
   frontend:
-    build:
-      context: ./shap-react
-      dockerfile: Dockerfile.prod
+    build: ./shap-react
     volumes:
       - ./shap-react/build:/src
 
