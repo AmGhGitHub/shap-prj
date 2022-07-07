@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    # command: python /code/manage.py runserver 0.0.0.0:8000
+    command: gunicorn shap_django.wsgi -b 0.0.0.0:8000 # new
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    environment:
+      - SECRET_KEY=${SECRET_KEY} # here it is
+      - DEBUG=${DEBUG}
+      - ENVIRONMENT=${ENVIRONMENT_DEV}
+      - REDIS_URL=${REDIS_URL}
+    links:
+      - redis
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+
+  celery:
+    build: .
+    volumes:
+      - .:/src
+    # container_name: cl01
+    command: celery -A shap_django worker #-l info
+    links:
+      - redis
