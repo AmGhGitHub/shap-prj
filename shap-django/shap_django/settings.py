@@ -147,6 +147,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+<<<<<<< HEAD
 # celery
 # print("os.env: \n",os.environ)
 # CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
@@ -160,3 +161,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_broker_url = os.environ.get("CELERY_BROKER_URL",'redis://redis:6379')
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND",'redis://redis:6379')
 
+=======
+CELERY_broker_url = os.environ.get("CELERY_BROKER_URL",'redis://redis:6379')
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND",'redis://redis:6379')
+>>>>>>> c3591fbd79593cb563adaff076bd919533d5e3fc
